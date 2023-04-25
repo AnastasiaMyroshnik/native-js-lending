@@ -70,7 +70,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
   modal();
 
   // Slider
-  const slider = ({container, slidesSelector, nextBtn, wrapper, inner, slideCounter}) => {
+  const slider = ({container, slidesSelector, nextBtn, wrapper, inner, slideCounter, adaptiveSlideCounter920}) => {
     const slider = document.querySelector(container);
     const slides = document.querySelectorAll(slidesSelector);
     const oneSlide = document.querySelector(slidesSelector);
@@ -87,6 +87,12 @@ document.addEventListener( 'DOMContentLoaded', () => {
       return +str.replace(/\D/g, '');
     }
 
+    if (document.documentElement.clientWidth <= 920) {
+      slideCount = adaptiveSlideCounter920;
+      console.log('adaptive');
+      console.log(slideCount);
+    }
+
     slidesField.style.width = 100 * slider.length + '%';
     slidesField.style.display = 'flex';
     slidesField.style.transition = '1s all';
@@ -96,6 +102,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
     const counter = Math.round(slides.length / slideCount);
     
     next.addEventListener('click', () => {
+
       let num = (slideCount * deleteNotANunber(widthOneSlide)) + (deleteNotANunber(marginRight) * slideCount);
 
       if (slideIndex == counter) {
@@ -106,6 +113,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
         ++slideIndex;
       }
       slidesField.style.transform = `translateX(-${offset}px)`;
+
+      console.log(slideCount);
     })
   }
 
@@ -115,7 +124,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
     nextBtn: '.sale__slider-btn', 
     wrapper: '.sale__slider-wrapper', 
     inner: '.sale__slider-inner', 
-    slideCounter: 3
+    slideCounter: 3,
+    adaptiveSlideCounter920: 2
   });
   slider({
     container: '.reviews__slider', 
@@ -123,7 +133,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
     nextBtn: '.reviews__slider-btn', 
     wrapper: '.reviews__slider-wrapper', 
     inner: '.reviews__slider-inner', 
-    slideCounter: 2
+    slideCounter: 2,
+    adaptiveSlideCounter920: 1
   });
 
   // Accordion

@@ -5,6 +5,7 @@
     &-wrapper {
       display: flex;
       align-items: center;
+      width: 998px;
     }
     &-inner {
       display: flex;
@@ -87,12 +88,32 @@
       &-item {
         margin-right: 50px;
         padding: 20px;
-        min-height: 175px;
+        // min-height: 175px;
+        width: 410px;
         &-img {
           min-width: 80px;
         }
         &-content {
           margin-left: 20px;
+          width: 150px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .reviews {
+    &__slider {
+      &-item {
+        padding:40px 24px;
+        width: 459px;
+        &-img {
+          min-width: 94px;
+        }
+        &-content {
+          margin-left: 42px;
+          width: 270px;
         }
       }
     }
