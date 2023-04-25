@@ -1,0 +1,57 @@
+.popup-header {
+  position: absolute;
+  right: 0;
+  top: -39px;
+  width: 211px;
+  min-height: 239px;
+  background: $white;
+  box-shadow: 0px 4px 20px rgba(51, 51, 51, 0.05);
+  transition: all 1.5s;
+  opacity: 0;
+  &__log-in {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-img {
+      width: 39px;
+      height: 39px;
+      border-radius: 50%;
+      background: #C4C4C4;
+    }
+    &-btn {
+      margin-top: 23px;
+    }
+
+  }
+  &__item {
+    margin-top: 15px;
+    margin-left: 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &-img {
+      height: 20px;
+      width: 20px;
+      img {
+        position: relative;
+        top: -4px;
+        height: 100%;
+      }
+    }
+    &-descr {
+      margin-left: 11px;
+      font-weight: 300;
+      font-size: 12px;
+    }
+  }
+  .divider {
+    margin-top: 15px;
+    width: 100%;
+    border-bottom: 0.5px solid $gray;
+  }
+  &--active {
+    opacity: 1;
+    z-index: 2;
+  }
+}
