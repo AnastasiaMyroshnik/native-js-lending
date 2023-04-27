@@ -22,7 +22,7 @@ section {
 
 .container {
   margin: 0 auto;
-  max-width: 1170px;
+  width: 1170px;
 }
 
 .show {
@@ -34,7 +34,7 @@ section {
 }
 
 .overflowing {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
@@ -98,6 +98,9 @@ section {
   border-radius: 50%;
   background-color: transparent;
   transition: all .75s;
+  &:focus {
+      outline: none;
+    }
   &:hover {
       background-color: $main-color;
         color: $white;
@@ -135,6 +138,7 @@ section {
 @import 'main-screen';
 @import 'popup-header';
 @import 'popup-login';
+@import 'popup-thanks';
 @import 'advantages';
 @import 'sale';
 @import 'reviews';
@@ -145,7 +149,7 @@ section {
 
 @media (max-width: 1281px) {
   .container {
-    max-width: 980px;
+    width: 980px;
   }
 }
 
@@ -154,7 +158,7 @@ section {
     margin-top: 110px;
   }
 .container {
-    max-width: 900px;
+    width: 900px;
   }
 }
 
@@ -166,7 +170,7 @@ section {
     margin-top: 80px;
   }
   .container {
-    max-width: 800px;
+    width: 800px;
   }
   .title {
     font-size: 35px;
@@ -184,6 +188,20 @@ section {
     margin-top: 60px;
   }
   .container {
-    max-width: 600px;
+    width: 600px;
+  }
+}
+
+@media (max-width: 415px) {
+  * {
+    font-size: 12px;
+  }
+  .container {
+    width: 355px;
+  }
+  .title {
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 87.3%;
   }
 }

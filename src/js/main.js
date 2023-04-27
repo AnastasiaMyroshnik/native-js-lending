@@ -19,6 +19,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
   // Бургер меню
   const burger = document.querySelector('.header__burger');
+  const mobileBurger = document.querySelector('.main-screen__mobile-burger');
+  const btn = document.querySelector('.main-screen__btn');
   const burgerMenu = document.querySelector('.burger-menu');
   const title = document.querySelector('.main-screen__title');
 
@@ -30,10 +32,12 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
   }
   burger.addEventListener('click', toggleBurgerMenu);
+  mobileBurger.addEventListener('click', toggleBurgerMenu);
+  btn.addEventListener('click', toggleBurgerMenu);
 
   // Modal
   const modal = () => {
-    const modalOpenedBtn = document.querySelector('[data-login]');
+    const modalOpenedBtns = document.querySelectorAll('[data-login]');
     const modal = document.querySelector('[data-modal]');
     const overflow = document.querySelector('.overflowing')
 
@@ -45,7 +49,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
       document.body.style.overflow = 'hidden';
     }
     const closeModal = () => {
-      console.log('close');
       modal.classList.remove('show');
       overflow.classList.remove('show');
       modal.classList.add('hide');
@@ -53,7 +56,10 @@ document.addEventListener( 'DOMContentLoaded', () => {
       document.body.style.overflow = '';
     }
 
-    modalOpenedBtn.addEventListener('click', openModal);
+    modalOpenedBtns.forEach(btn => {
+      btn.addEventListener('click', openModal)
+    })
+    // modalOpenedBtn.addEventListener('click', openModal);
 
     document.addEventListener('click', (e) => {
       if (e.target.getAttribute('data-close') == '' || e.target === overflow) {
@@ -71,51 +77,52 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
   // Slider
   const slider = ({container, slidesSelector, nextBtn, wrapper, inner, slideCounter, adaptiveSlideCounter920}) => {
-    const slider = document.querySelector(container);
-    const slides = document.querySelectorAll(slidesSelector);
-    const oneSlide = document.querySelector(slidesSelector);
-    const next = document.querySelector(nextBtn);
-    const slidesWrapper = document.querySelector(wrapper);
-    const slidesField = document.querySelector(inner);
-    const widthOneSlide = window.getComputedStyle(oneSlide).width;
-    const marginRight = window.getComputedStyle(oneSlide).marginRight;
-    let slideCount = slideCounter;
-    let offset = 0;
-    let slideIndex = 1;
+    if (document.documentElement.clientWidth <= 414) {
+      return
+    } else {
 
-    function deleteNotANunber(str) {
-      return +str.replace(/\D/g, '');
-    }
-
-    if (document.documentElement.clientWidth <= 920) {
-      slideCount = adaptiveSlideCounter920;
-      console.log('adaptive');
-      console.log(slideCount);
-    }
-
-    slidesField.style.width = 100 * slider.length + '%';
-    slidesField.style.display = 'flex';
-    slidesField.style.transition = '1s all';
-    slidesWrapper.style.overflow = 'hidden';
-    slidesWrapper.style.width = (slideCount * deleteNotANunber(widthOneSlide)) + (deleteNotANunber(marginRight) * (slideCount - 1)) + 'px';
-
-    const counter = Math.round(slides.length / slideCount);
-    
-    next.addEventListener('click', () => {
-
-      let num = (slideCount * deleteNotANunber(widthOneSlide)) + (deleteNotANunber(marginRight) * slideCount);
-
-      if (slideIndex == counter) {
-        offset = 0;
-        slideIndex = 1;
-      } else {
-        offset += num;
-        ++slideIndex;
+      const slider = document.querySelector(container);
+      const slides = document.querySelectorAll(slidesSelector);
+      const oneSlide = document.querySelector(slidesSelector);
+      const next = document.querySelector(nextBtn);
+      const slidesWrapper = document.querySelector(wrapper);
+      const slidesField = document.querySelector(inner);
+      const widthOneSlide = window.getComputedStyle(oneSlide).width;
+      const marginRight = window.getComputedStyle(oneSlide).marginRight;
+      let slideCount = slideCounter;
+      let offset = 0;
+      let slideIndex = 1;
+  
+      function deleteNotANunber(str) {
+        return +str.replace(/\D/g, '');
       }
-      slidesField.style.transform = `translateX(-${offset}px)`;
-
-      console.log(slideCount);
-    })
+  
+      if (document.documentElement.clientWidth <= 920) {
+        slideCount = adaptiveSlideCounter920;
+      }
+  
+      slidesField.style.width = 100 * slider.length + '%';
+      slidesField.style.display = 'flex';
+      slidesField.style.transition = '1s all';
+      slidesWrapper.style.overflow = 'hidden';
+      slidesWrapper.style.width = (slideCount * deleteNotANunber(widthOneSlide)) + (deleteNotANunber(marginRight) * (slideCount - 1)) + 'px';
+  
+      const counter = Math.round(slides.length / slideCount);
+      
+      next.addEventListener('click', () => {
+  
+        let num = (slideCount * deleteNotANunber(widthOneSlide)) + (deleteNotANunber(marginRight) * slideCount);
+  
+        if (slideIndex == counter) {
+          offset = 0;
+          slideIndex = 1;
+        } else {
+          offset += num;
+          ++slideIndex;
+        }
+        slidesField.style.transform = `translateX(-${offset}px)`;
+      })
+    }
   }
 
   slider({
@@ -151,6 +158,108 @@ document.addEventListener( 'DOMContentLoaded', () => {
     })
   }
 
-
   accordion();
+
+  const sendForm = () => {
+    const form = document.querySelector('.feed-form');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+
+        const jsonData = JSON.stringify(Object.fromEntries(formData.entries()));
+
+        fetch('server.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: jsonData
+        })
+        .then(data => data.text())
+        .then (data => 
+          {console.log(data);
+          showModal();
+          })
+        .catch(() => {
+          console.log('error');
+        })
+        .finally(() => {
+          form.reset();
+        })
+      });
+
+      const showModal = () => {
+        const modal = document.querySelector('[data-modal-thanks]');
+        const overflow = document.querySelector('.overflowing');
+        
+        document.body.style.overflow = 'hidden';
+        modal.classList.remove('hide');
+        overflow.classList.remove('hide');
+        modal.classList.add('show');
+        overflow.classList.add('show');
+        
+        
+        const closeModal = () => {
+          modal.classList.remove('show');
+          overflow.classList.remove('show');
+          modal.classList.add('hide');
+          overflow.classList.add('hide');
+          document.body.style.overflow = '';
+        }
+        
+        setTimeout(closeModal, 6000);
+
+        document.addEventListener('click', (e) => {
+          if (e.target.getAttribute('data-close') == '' || e.target === overflow) {
+            closeModal();
+          }
+        });
+        document.addEventListener('keydown', (e) => {
+          if (e.code === 'Escape' && modal.classList.contains('show')) {
+            closeModal();
+          }
+        })
+      }
+  }
+
+  sendForm();
+
+  // sale mobile
+  const showMore = () => {
+    const triggerBtn = document.querySelector('.sale__slider-mobile-btn');
+    const showedContent = document.querySelectorAll('.sale__slider-item');
+    let showIndex = 0;
+    let offset = 2;
+
+    showedContent.forEach(item => {
+      item.classList.add('hide')
+    });
+
+    const shovingFourItemsContent = (x) => {
+      for (let i = x; i < x + offset; i++) {
+        showedContent[i].classList.remove('hide');
+      }
+      showIndex = x + offset;
+      return showIndex;
+    }
+
+    shovingFourItemsContent(showIndex);
+    console.log(`showIndex first time: ${showIndex}`);
+
+    const showMoreContent = () => {
+      shovingFourItemsContent(showIndex);
+      console.log(`showIndex is ${showIndex}`);
+      console.log(`showedContent.length is ${showedContent.length}`);
+      if (showIndex >= (showedContent.length - offset)) {
+        triggerBtn.remove();
+        shovingFourItemsContent(showIndex);
+      }
+    }
+
+    triggerBtn.addEventListener('click', showMoreContent);
+  };
+
+  showMore();
 })

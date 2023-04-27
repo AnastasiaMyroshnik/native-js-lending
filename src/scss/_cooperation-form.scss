@@ -1,4 +1,5 @@
 .cooperation-form {
+  position: relative;
   &__wrapper {
     width: 971px;
     min-height: 420px;
@@ -76,6 +77,23 @@
       right: -82px;
     }
   }
+  &__circle, &__round {
+    position: absolute;
+    right: 0;
+    bottom: -40%;
+  }
+  &__round {
+    top: 20%;
+  }
+}
+
+@media (max-width: 1045px) {
+  .cooperation-form {
+    &__circle,
+    &__round {
+      display: none;
+    }
+  }
 }
 
 @media (max-width: 921px) {
@@ -99,6 +117,41 @@
     &__inner {
       width: 510px;
       min-height: 310px;
+    }
+  }
+}
+
+@media (max-width: 415px) {
+  .cooperation-form {
+    width: 100%;
+    &__wrapper {
+      min-height: 339px;
+      width: 100%;
+    }
+    &__inner {
+      padding: 33px;
+      min-height: 270px;
+      width: 355px;
+    }
+    &__title {
+      font-size: 12px;
+      text-align: center;
+    }
+    .feed-form {
+      margin: 0 auto;
+      margin-top: 30px;
+      input {
+        margin-top: 20px;
+        font-size: 10px;
+        text-align: center;
+      }
+    }
+    &-btn {
+      margin: 0 auto;
+      margin-top: 30px;
+      .arrow-white {
+        top: -12px;
+      }
     }
   }
 }

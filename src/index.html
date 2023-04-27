@@ -30,7 +30,7 @@
   <header class="header">
     <div class="container">
       <div class="header__wrapper">
-        <div class="header__burger">
+        <div class="header__burger" >
           <span></span>
           <span></span>
           <span></span>
@@ -55,6 +55,13 @@
       </div>
 
       <div class="burger-menu">
+        <div class="burger-menu__mobile-content">
+          <h3 class="burger-menu__mobile-content-title">Каталог</h3>
+          <div class="main-screen__mobile-search">
+            <img class="main-screen__mobile-search-img" src="icons/main-screen-mobile/search.svg" alt="search">
+            <input class="main-screen__mobile-search-input" type="search" placeholder="Поиск">
+          </div>
+        </div>
         <img class="burger-menu__logo" src="icons/logo.svg" alt="logo">
         <ul class="burger-menu__items">
           <li class="burger-menu__item">
@@ -111,33 +118,38 @@
 
   <section class="main-screen">
     <div class="container">
-        <div class="popup-header">
-          <div class="popup-header__log-in">
-            <div class="popup-header__log-in-img"></div>
-            <button class="btn popup-header__log-in-btn" data-login >Войти</button>
+      <div class="popup-header">
+        <div class="popup-header__log-in">
+          <div class="popup-header__log-in-img"></div>
+          <button class="btn popup-header__log-in-btn" data-login >Войти</button>
+        </div>
+        <div class="popup-header__items">
+          <div class="popup-header__item">
+            <div class="popup-header__item-img">
+              <img src="icons/popup-header/shopping-bag.svg" alt="shopping-bag">
+            </div>
+            <div class="popup-header__item-descr">Корзина</div>
           </div>
-          <div class="popup-header__items">
-            <div class="popup-header__item">
-              <div class="popup-header__item-img">
-                <img src="icons/popup-header/shopping-bag.svg" alt="shopping-bag">
-              </div>
-              <div class="popup-header__item-descr">Корзина</div>
+          <div class="divider"></div>
+          <div class="popup-header__item">
+            <div class="popup-header__item-img">
+              <img src="icons/popup-header/heart.svg" alt="heart">
             </div>
-            <div class="divider"></div>
-            <div class="popup-header__item">
-              <div class="popup-header__item-img">
-                <img src="icons/popup-header/heart.svg" alt="heart">
-              </div>
-              <div class="popup-header__item-descr">Избранное</div>
+            <div class="popup-header__item-descr">Избранное</div>
+          </div>
+          <div class="popup-header__item">
+            <div class="popup-header__item-img">
+              <img src="icons/popup-header/eye.svg" alt="eye">
             </div>
-            <div class="popup-header__item">
-              <div class="popup-header__item-img">
-                <img src="icons/popup-header/eye.svg" alt="eye">
-              </div>
-              <div class="popup-header__item-descr">Просмотренные</div>
-            </div>
+            <div class="popup-header__item-descr">Просмотренные</div>
           </div>
         </div>
+      </div>
+
+      <div class="main-screen__mobile-search">
+        <img class="main-screen__mobile-search-img" src="icons/main-screen-mobile/search.svg" alt="search">
+        <input class="main-screen__mobile-search-input" type="search" placeholder="Поиск">
+      </div>
 
       <div class="main-screen__inner">
         <div class="main-screen__item">
@@ -162,20 +174,43 @@
         <span class="arrow-main-color"></span>
       </button>
     </div>
+
+    <div class="main-screen__mobile-footer">
+      <div class="main-screen__mobile-footer-inner">
+        <div class="main-screen__mobile-footer-item">
+          <img src="icons/main-screen-mobile/home.svg" alt="home">
+        </div>
+        <div class="main-screen__mobile-footer-item">
+          <img src="icons/main-screen-mobile/heart.svg" alt="heart
+          "></div>
+        <div class="main-screen__mobile-footer-item" data-login>
+          <img src="icons/main-screen-mobile/account.svg" alt="acc
+          ount"></div>
+        <div class="main-screen__mobile-footer-item">
+          <img src="icons/main-screen-mobile/shopping-bag.svg" alt
+          ="shopping-bag"></div>
+        <div class="main-screen__mobile-footer-item main-screen__mobile-burger">
+          <img src="icons/main-screen-mobile/menu.svg" alt="menu">
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="advantages">
     <div class="container">
       <h3 class="title">Почему выбирают нас?</h3>
       <div class="advantages__wrapper">
-        <div class="advantages__item">Скидки постоянным клиентам от 5%</div>
-        <div class="advantages__item">Предлагаем самые выгодные цены</div>
-        <div class="advantages__item">Наши покупатели всегда остаются довольны</div>
-        <div class="advantages__item">Ширикий ассортимент товаров для всей семьи</div>
-        <div class="advantages__item">Возможность доставки в <br> любой город Украины</div>
-        <div class="advantages__item">Пункты выдачи заказов <br> рядом с домом</div>
+        <div class="advantages__item"><p>
+          Скидки постоянным клиентам от 5%
+        </p></div>
+        <div class="advantages__item"><p>Предлагаем самые выгодные цены</p></div>
+        <div class="advantages__item"><p>Наши покупатели всегда остаются довольны</p></div>
+        <div class="advantages__item"><p>Ширикий ассортимент товаров для всей семьи</p></div>
+        <div class="advantages__item"><p>Возможность доставки в <br> любой город Украины</p></div>
+        <div class="advantages__item"><p>Пункты выдачи заказов <br> рядом с домом</p></div>
       </div>
     </div>
+    <img class="advantages__circle" src="icons/circles/advantages-circle.svg" alt="decor">
   </section>
 
   <section class="sale">
@@ -417,7 +452,214 @@
                 </div>
               </div>
             </div>
+            <div class="sale__slider-item">
+              <div class="sale__slider-item-img">
+                <img src="img/sale/item2.jpg" alt="dress">
+              </div>
+              <div class="sale__slider-item-content">
+                <div class="sale__slider-item-prices">
+                  <div class="sale__slider-item-new-price">
+                    1500 грн.
+                  </div>
+                  <div class="sale__slider-item-old-price">
+                    200 грн.
+                  </div>
+                </div>
+                <div class="sale__slider-item-title">
+                  Блузка женская классная
+                </div>
+                <div class="sale__slider-item-icons">
+                  <img src="icons/header/heart.svg" alt="heart">
+                  <img src="icons/header/shop.svg" alt="bye">
+                </div>
+                <button class="sale__slider-item-btn">
+                  <p>Подробнее</p>
+                  <span class="arrow-black"></span>
+                </button>
+                <div class="sale__slider-item-range">
+                  <img src="icons/sale/stars.svg" alt="range">
+                </div>
+              </div>
+            </div>
+            <div class="sale__slider-item">
+              <div class="sale__slider-item-img">
+                <img src="img/sale/item3.jpg" alt="dress">
+              </div>
+              <div class="sale__slider-item-content">
+                <div class="sale__slider-item-prices">
+                  <div class="sale__slider-item-new-price">
+                    1500 грн.
+                  </div>
+                  <div class="sale__slider-item-old-price">
+                    200 грн.
+                  </div>
+                </div>
+                <div class="sale__slider-item-title">
+                  Блузка женская классная
+                </div>
+                <div class="sale__slider-item-icons">
+                  <img src="icons/header/heart.svg" alt="heart">
+                  <img src="icons/header/shop.svg" alt="bye">
+                </div>
+                <button class="sale__slider-item-btn">
+                  <p>Подробнее</p>
+                  <span class="arrow-black"></span>
+                </button>
+                <div class="sale__slider-item-range">
+                  <img src="icons/sale/stars.svg" alt="range">
+                </div>
+              </div>
+            </div>
+            <div class="sale__slider-item">
+              <div class="sale__slider-item-img">
+                <img src="img/sale/item4.jpg" alt="dress">
+              </div>
+              <div class="sale__slider-item-content">
+                <div class="sale__slider-item-prices">
+                  <div class="sale__slider-item-new-price">
+                    1500 грн.
+                  </div>
+                  <div class="sale__slider-item-old-price">
+                    200 грн.
+                  </div>
+                </div>
+                <div class="sale__slider-item-title">
+                  Блузка женская классная
+                </div>
+                <div class="sale__slider-item-icons">
+                  <img src="icons/header/heart.svg" alt="heart">
+                  <img src="icons/header/shop.svg" alt="bye">
+                </div>
+                <button class="sale__slider-item-btn">
+                  <p>Подробнее</p>
+                  <span class="arrow-black"></span>
+                </button>
+                <div class="sale__slider-item-range">
+                  <img src="icons/sale/stars.svg" alt="range">
+                </div>
+              </div>
+            </div>
+            <div class="sale__slider-item">
+              <div class="sale__slider-item-img">
+                <img src="img/sale/item1.jpg" alt="dress">
+              </div>
+              <div class="sale__slider-item-content">
+                <div class="sale__slider-item-prices">
+                  <div class="sale__slider-item-new-price">
+                    1500 грн.
+                  </div>
+                  <div class="sale__slider-item-old-price">
+                    200 грн.
+                  </div>
+                </div>
+                <div class="sale__slider-item-title">
+                  Блузка женская классная
+                </div>
+                <div class="sale__slider-item-icons">
+                  <img src="icons/header/heart.svg" alt="heart">
+                  <img src="icons/header/shop.svg" alt="bye">
+                </div>
+                <button class="sale__slider-item-btn">
+                  <p>Подробнее</p>
+                  <span class="arrow-black"></span>
+                </button>
+                <div class="sale__slider-item-range">
+                  <img src="icons/sale/stars.svg" alt="range">
+                </div>
+              </div>
+            </div>
+            <div class="sale__slider-item">
+              <div class="sale__slider-item-img">
+                <img src="img/sale/item2.jpg" alt="dress">
+              </div>
+              <div class="sale__slider-item-content">
+                <div class="sale__slider-item-prices">
+                  <div class="sale__slider-item-new-price">
+                    1500 грн.
+                  </div>
+                  <div class="sale__slider-item-old-price">
+                    200 грн.
+                  </div>
+                </div>
+                <div class="sale__slider-item-title">
+                  Блузка женская классная
+                </div>
+                <div class="sale__slider-item-icons">
+                  <img src="icons/header/heart.svg" alt="heart">
+                  <img src="icons/header/shop.svg" alt="bye">
+                </div>
+                <button class="sale__slider-item-btn">
+                  <p>Подробнее</p>
+                  <span class="arrow-black"></span>
+                </button>
+                <div class="sale__slider-item-range">
+                  <img src="icons/sale/stars.svg" alt="range">
+                </div>
+              </div>
+            </div>
+            <div class="sale__slider-item">
+              <div class="sale__slider-item-img">
+                <img src="img/sale/item3.jpg" alt="dress">
+              </div>
+              <div class="sale__slider-item-content">
+                <div class="sale__slider-item-prices">
+                  <div class="sale__slider-item-new-price">
+                    1500 грн.
+                  </div>
+                  <div class="sale__slider-item-old-price">
+                    200 грн.
+                  </div>
+                </div>
+                <div class="sale__slider-item-title">
+                  Блузка женская классная
+                </div>
+                <div class="sale__slider-item-icons">
+                  <img src="icons/header/heart.svg" alt="heart">
+                  <img src="icons/header/shop.svg" alt="bye">
+                </div>
+                <button class="sale__slider-item-btn">
+                  <p>Подробнее</p>
+                  <span class="arrow-black"></span>
+                </button>
+                <div class="sale__slider-item-range">
+                  <img src="icons/sale/stars.svg" alt="range">
+                </div>
+              </div>
+            </div>
+            <div class="sale__slider-item">
+              <div class="sale__slider-item-img">
+                <img src="img/sale/item4.jpg" alt="dress">
+              </div>
+              <div class="sale__slider-item-content">
+                <div class="sale__slider-item-prices">
+                  <div class="sale__slider-item-new-price">
+                    1500 грн.
+                  </div>
+                  <div class="sale__slider-item-old-price">
+                    200 грн.
+                  </div>
+                </div>
+                <div class="sale__slider-item-title">
+                  Блузка женская классная
+                </div>
+                <div class="sale__slider-item-icons">
+                  <img src="icons/header/heart.svg" alt="heart">
+                  <img src="icons/header/shop.svg" alt="bye">
+                </div>
+                <button class="sale__slider-item-btn">
+                  <p>Подробнее</p>
+                  <span class="arrow-black"></span>
+                </button>
+                <div class="sale__slider-item-range">
+                  <img src="icons/sale/stars.svg" alt="range">
+                </div>
+              </div>
+            </div>
           </div>
+          <button class="btn sale__slider-mobile-btn">
+            <p>Смотреть еще</p>
+            <span class="arrow-white"></span>
+          </button>
 
         </div>
         <button class="sale__slider-btn">
@@ -569,6 +811,7 @@
         </button>
       </div>
     </div>
+    <img class="reviews__circle" src="icons/circles/reviews-circle.svg" alt="decor">
   </section>
 
   <section class="questions">
@@ -586,7 +829,7 @@
           нужный размер и цвет, и нажимает кнопку “заказать”. Выбирает способ оплаты и доставки и покупает товар.
         </div>
         <div class="questions__question">
-          <div>Способы оплаты</div>
+          Способы оплаты
           <span class="questions__question-plus"></span>
           <span class="questions__question-plus questions__question-plus--active"></span>
         </div>
@@ -656,7 +899,7 @@
         Наша компания постоянно растёт и расширяет рынок, поэтому мы заинтересованы в новых партнёрах и рассматриваем новые
         проекты, которые могут быть привлекательны и интересны с коммерческой точки зрения.
       </div>
-      <div class="cooperation__inner">
+      <div class="cooperation__items">
         <div class="cooperation__item">
           <div class="cooperation__item-title">Становитесь партнёром</div>
           <div class="cooperation__item-subtitle">Регистрируйтесь и
@@ -679,32 +922,32 @@
           <div class="cooperation__item-subtitle">Копите бонусы от каждого оплаченного заказа</div>
         </div>
       </div>
-      <div class="cooperation__subtitle">Это выгодно. Какие преимущества?</div>
+      <div class="cooperation__subtitle"><span>Это выгодно. </span>Какие преимущества?</div>
 
       <div class="cooperation__inner">
-        <div class="cooperation__item">
-          <div class="cooperation__item-img">
+        <div class="cooperation__component">
+          <div class="cooperation__component-img">
             <img src="icons/cooperation/cog.svg" alt="cog">
           </div>
-          <div class="cooperation__item-descr">Автоматизация процессов</div>
+          <div class="cooperation__component-descr">Автоматизация процессов</div>
         </div>
-        <div class="cooperation__item">
-          <div class="cooperation__item-img">
+        <div class="cooperation__component">
+          <div class="cooperation__component-img">
             <img src="icons/cooperation/list.svg" alt="list">
           </div>
-          <div class="cooperation__item-descr">Пополнение ассортимента</div>
+          <div class="cooperation__component-descr">Пополнение ассортимента</div>
         </div>
-        <div class="cooperation__item">
-          <div class="cooperation__item-img">
+        <div class="cooperation__component">
+          <div class="cooperation__component-img">
             <img src="icons/cooperation/employee-group.svg" alt="employee">
           </div>
-          <div class="cooperation__item-descr">Поддержка и обучение</div>
+          <div class="cooperation__component-descr">Поддержка и обучение</div>
         </div>
-        <div class="cooperation__item">
-          <div class="cooperation__item-img">
+        <div class="cooperation__component">
+          <div class="cooperation__component-img">
             <img src="icons/cooperation/coin-bag.svg" alt="coin">
           </div>
-          <div class="cooperation__item-descr">Бонусы за новых клиентов</div>
+          <div class="cooperation__component-descr">Бонусы за новых клиентов</div>
         </div>
       </div>
     </div>
@@ -716,7 +959,7 @@
         <h4 class="cooperation-form__title">Приглашаем к сотрудничеству производителей и поставщиков одежды, обуви и аксессуаров</h4>
         <form action="#" class="feed-form">
           <input required name="name" placeholder="Ваше имя" type="text">
-          <input required name="phone" placeholder="Номер телефона">
+          <input required name="phone" placeholder="Номер телефона" type="phone">
           <input required name="email" placeholder="Электронная почта" type="email">
           <div>
             <input required type="checkbox" id="agree" class="custom-checkbox">
@@ -729,6 +972,8 @@
         </form>
       </div>
     </div>
+    <img class="cooperation-form__circle" src="icons/circles/cooperation-form-circle.svg" alt="decor">
+    <img class="cooperation-form__round" src="icons/circles/cooperation-form-round.svg" alt="decor">
   </section>
 
   <footer class="footer">
@@ -793,16 +1038,24 @@
           <div class="footer__title">Соц. сети</div>
           <div class="footer__social">
             <div class="footer__social-icon">
-              <img src="icons/footer/telegrem.svg" alt="telegrem">
+              <a>
+                <img src="icons/footer/telegrem.svg" alt="telegrem">
+              </a>
             </div>
             <div class="footer__social-icon">
-              <img src="icons/footer/insta.svg" alt="instagram">
+              <a>
+                <img src="icons/footer/insta.svg" alt="instagram">
+              </a>
             </div>
             <div class="footer__social-icon">
-              <img src="icons/footer/mail.svg" alt="mail">
+              <a>
+                <img src="icons/footer/mail.svg" alt="mail">
+              </a>
             </div>
             <div class="footer__social-icon">
-              <img src="icons/footer/whatsapp.svg" alt="whatsapp">
+              <a>
+                <img src="icons/footer/whatsapp.svg" alt="whatsapp">
+              </a>
             </div>
           </div>
           <div class="footer__social-item">
@@ -824,6 +1077,75 @@
         <div class="footer__item">
           <div class="footer-logo">
             <img src="icons/logo.svg" alt="logo">
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__mobile-wrapper">
+        <div class="footer-logo">
+          <img src="icons/logo.svg" alt="logo">
+        </div>
+        <div class="footer__content">
+          <div class="footer__component">
+            <div class="footer__component-title">
+              Информация
+              <span></span>
+              <span></span>
+            </div>
+            <div class="footer__component-item">
+              
+            </div>
+            <div class="footer__component-title">
+              Мой кабинет
+              <span></span>
+              <span></span>
+            </div>
+            <div class="footer__component-item">
+
+            </div>
+            <div class="footer__component-title">
+              Сотрудничество
+              <span></span>
+              <span></span>
+            </div>
+            <div class="footer__component-item">
+
+            </div>
+            <div class="footer__component-title">
+              Контакты
+              <span></span>
+              <span></span>
+            </div>
+            <div class="footer__component-item">
+
+            </div>
+          </div>
+          <div class="footer__component">
+            <p class="footer__component-social-title">Мы в соц. сетях</p>
+            <div class="footer__social">
+              <div class="footer__social-icon">
+                <a>
+                  <img src="icons/footer/mail.svg" alt="mail">
+                </a>
+              </div>
+              <div class="footer__social-icon">
+                <a>
+                  <img src="icons/footer/phone.svg" alt="phone">
+                </a>
+              </div>
+              <div class="footer__social-icon">
+                <a>
+                  <img src="icons/footer/telegrem.svg" alt="telegrem">
+                </a>
+              </div>
+              <div class="footer__social-icon">
+                <a>
+                  <img src="icons/footer/insta.svg" alt="instagram">
+                </a>
+              </div>
+            </div>
+            <a class="footer__component-call" href="tel:+375255990755">+375255990755</a>
+            <p class="footer__component-p">круглосуточно, без выходных</p>
           </div>
         </div>
       </div>
@@ -853,6 +1175,21 @@
         </div>
       </form>
     </div>
+    <img class="popup-login__circle" src="icons/circles/popup-login-circle.svg" alt="decor">
+  </div>
+
+  <div class="popup-thanks hide" data-modal-thanks>
+    <div class="popup-thanks__close" data-close>
+      <img src="icons/popup-login/close.svg" data-close alt="close">
+    </div>
+    <div class="popup-thanks__wrapper">
+      <h3 class="title">Ваша заявка обрабатывается.</h3>
+      <p class="popup-thanks__text">Наш специалист с Вами свяжется в ближайшее время</p>
+      <h3 class="subtitle">Спасибо!</h3>
+    </div>
+    <div class="popup-thanks__big-circle"></div>
+    <div class="popup-thanks__circle"></div>
+    <img class="popup-thanks__round" src="icons/circles/popup-thanks-circle.svg" alt="decor">
   </div>
 
   <div class="overflowing hide"></div>

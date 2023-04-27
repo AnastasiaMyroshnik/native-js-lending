@@ -63,3 +63,27 @@
     }
   }
 }
+
+@media (max-width: 415px) {
+  .questions {
+    .subtitle {
+      top: 22px;
+      left: 272px;
+    }
+    &__wrapper {
+      margin-top: 48px;
+    }
+    &__question {
+      padding-bottom: 8px;
+      margin-top: 28px;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 14px;
+    }
+    &__answer {
+      margin-top: 0;
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+}

@@ -1,6 +1,9 @@
 .footer {
   margin-top: 150px;
   background-color: $main-color;
+  &__mobile-wrapper {
+    display: none;
+  }
   &__wrapper {
     padding: 82px 133px;
     display: flex;
@@ -53,6 +56,7 @@
     &-icon {
       margin-right: 15px;
       width: 21px;
+      cursor: pointer;
       &:last-child {
         margin-right: 0;
       }
@@ -133,6 +137,86 @@
   .footer {
     &__list, &__text, &__social {
       width: 110px;
+    }
+  }
+}
+
+@media (max-width: 415px) {
+  .footer {
+    margin-top: 0;
+    &__wrapper {
+      display: none;
+    }
+    &__mobile-wrapper {
+      padding: 9px 0 27px 0;
+      display: block;
+    }
+    .footer-logo {
+      height: 30px;
+      img {
+        height: 100%;
+      }
+    }
+    &__content {
+      margin-top: 10px;
+      display: flex;
+    }
+    &__component {
+      margin-left: 44px;
+      opacity: 0.8;
+      &:first-child {
+        margin-left: 0;
+        width: 106px;
+      }
+      &-title {
+        position: relative;
+        margin-top: 7px;
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 12px;
+        color: $white;
+        width: 100%;
+        padding-bottom: 5px;
+        border-bottom: 0.5px solid $white;
+        &:first-child {
+          margin-top: 0;
+        }
+        span {
+          position: absolute;
+          right: 0;
+          bottom: 10px;
+          width: 6px;
+          height: 1px;
+          background-color: $white;
+          transform: rotate(-45deg);
+          &:last-child {
+            transform: rotate(45deg);
+            right: 4px;
+          }
+        }
+      }
+      &-social-title {
+        font-size: 10px;
+        line-height: 12px;
+        color: $white;
+      }
+      &-call {
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 12px;
+        color: $white;
+        text-decoration: none;
+      }
+      &-p {
+        margin-top: 14px;
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 12px;
+        color: $white;
+      }
+    }
+    &__social {
+      margin-bottom: 6px;
     }
   }
 }

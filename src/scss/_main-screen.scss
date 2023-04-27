@@ -3,6 +3,9 @@
   .container {
     position: relative;
   }
+  &__mobile-search {
+    display: none;
+  }
   &__inner {
     display: grid;
     grid-template: 242px 114px / 537px 476px;
@@ -62,6 +65,9 @@
         color: $white;
       }
     }
+  }
+  &__mobile-footer {
+    display: none;
   }
 }
 
@@ -155,6 +161,101 @@
         margin-top: 6px;
         width: 38px;
         right: -31px;
+      }
+    }
+  }
+}
+
+@media (max-width: 415px) {
+  .main-screen {
+    margin: 0;
+    padding-top: 11px;
+    height: 100vh;
+    background: url('../img/main-screen-mobile.jpg') center center/cover no-repeat;
+    &__inner {
+      display: block;
+    }
+    &__item {
+      &:nth-child(1) {
+        display: none;
+      }
+      &:nth-child(2) {
+        padding-top: 178px;
+      }
+      &:nth-child(3) {
+        display: none;
+      }
+    }
+    &__title, &__title span {
+      color: $white;
+      font-size: 37px;
+      line-height: 120%;
+      text-align: center;
+    }
+    &__text {
+      margin-top: 30px;
+      font-weight: 400;
+      font-size: 14px;
+      text-align: center;
+      color: $white;
+    }
+    &__btn {
+      margin-top: 30px;
+      width: 137px;
+      height: 137px;
+      background-color: $main-color;
+      p {
+        color: $white;
+      }
+      .arrow-main-color {
+        right: -61px;
+        background-color: $white;
+        &::before, &::after {
+          background-color: $white;
+        }
+      }
+    }
+    &__mobile-search {
+      display: block;
+      position: relative;
+      &-img {
+        position: absolute;
+        left: 9px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &-input {
+        padding-left: 37px;
+        width: 100%;
+        height: 35px;
+        background: $white;
+        border-radius:10px;
+        font-weight: 100;
+        font-size: 12px;
+        line-height: 14px;
+        color: $gray;
+        outline: none;
+      }
+    }
+    &__mobile-footer {
+      display: block;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 63px;
+      background-color: $main-color;
+      padding: 19px 32px;
+      z-index: 2;
+      &-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      &-item {
+        height: 25px;
+        img {
+          height: 100%;
+        }
       }
     }
   }

@@ -1,5 +1,5 @@
 .popup-login {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
@@ -73,6 +73,11 @@
       text-decoration: none;
     }
   }
+  &__circle {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
 }
 
 
@@ -90,6 +95,48 @@
 
     &__form {
       margin-top: 35px;
+    }
+    &__circle {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 415px) {
+  .popup-login {
+    padding: 20px;
+    width: 355px;
+    min-height: 282px;
+    &__close {
+      right: 20px;
+      width: 30px;
+      height: 30px;
+      img {
+        height: 10px;
+        width: 10px;
+      }
+    }
+    &__title {
+      margin-top: 50px;
+    }
+    &__form {
+      margin-top: 20px;
+      width: 315px;
+      input {
+        font-size: 12px;
+        &:last-child {
+          margin-top: 20px;
+        }
+      }
+    }
+    &__remember {
+      margin-top: 20px;
+      a {
+        font-size: 12px;
+      }
+    }
+    &__btns {
+      margin-top: 20px;
     }
   }
 }

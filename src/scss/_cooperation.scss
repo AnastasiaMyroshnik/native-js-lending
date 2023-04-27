@@ -5,12 +5,12 @@
     font-size: 16px;
     color: $gray;
   }
-  &__inner {
+  &__inner, &__items {
     margin-top: 60px;
     display: flex;
     justify-content: space-between;
   }
-  &__item {
+  &__item, &__component {
     text-align: center;
     width: 175px;
     &-subtitle {
@@ -19,19 +19,21 @@
       font-size: 12px;
       color: $gray;
     }
-    &-img {
-      margin: 0 auto;
-      width: 30px;
-      height: 30px;
-      img {
-        max-height: 100%;
+    &__component {
+      &-img {
+        margin: 0 auto;
+        width: 30px;
+        height: 30px;
+        img {
+          max-height: 100%;
+        }
       }
-    }
-    &-descr {
-      margin-top: 20px;
-      font-weight: 300;
-      font-size: 14px;
-      color: $gray;
+      &-descr {
+        margin-top: 20px;
+        font-weight: 300;
+        font-size: 14px;
+        color: $gray;
+      }
     }
   }
   &__subtitle {
@@ -61,6 +63,67 @@
     }
     &__inner {
       margin-top: 35px;
+    }
+  }
+}
+
+@media (max-width: 415px) {
+  .cooperation {
+    &__text {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 12px;
+    }
+    &__items {
+      margin-top: 30px;
+      display: grid;
+      grid-template: repeat(2, minmax(78px, 1fr)) / repeat(2, 165px);
+      row-gap: 30px;
+      column-gap: 25px;
+    }
+    &__item {
+      position: relative;
+      width: 165px;
+      min-height: 78px;
+      background-color: $main-color;
+      box-shadow: 0px 4px 10px rgba(81, 74, 126, 0.4);
+      border-radius: 10px;
+      &-title {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        width: 86px;
+        font-size: 12px;
+        color: $white;
+      }
+      &-subtitle {
+        display: none;
+      }
+    }
+    &__subtitle {
+      margin-top: 60px;
+      font-weight: 300;
+      font-size: 25px;
+      line-height: 87.3%;
+      text-align: center;
+      span {
+        display: none;
+      }
+    }
+    &__inner {
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: center;
+    }
+    &__component {
+      margin-top: 38px;
+      &-descr {
+        margin-top: 20px;
+        font-weight: 300;
+        font-size: 14px;
+        color: $gray;
+      }
     }
   }
 }
