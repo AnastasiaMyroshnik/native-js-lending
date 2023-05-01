@@ -145,21 +145,36 @@ document.addEventListener( 'DOMContentLoaded', () => {
   });
 
   // Accordion
-  const accordion = () => {
-    const triggers = document.querySelectorAll('.questions__question');
-
+  const accordion = ({triggerElem, spanClass, spanActiveClass, questionActiveClass, answerActiveClass}) => {
+    const triggers = document.querySelectorAll(triggerElem);
+    
     triggers.forEach(trigger => {
       trigger.addEventListener('click', function() {
-        console.log(this.lastChild);
-        this.lastChild.classList.toggle('questions__question-plus--active');
-        this.classList.toggle('questions__question--active');
-        this.nextElementSibling.classList.toggle('questions__answer--active');
+        const span = trigger.querySelectorAll(spanClass);
+        span.forEach(item => item.classList.toggle(spanActiveClass));
+        // this.lastChild.classList.toggle(spanActiveClass);
+        this.classList.toggle(questionActiveClass);
+        this.nextElementSibling.classList.toggle(answerActiveClass);
       })
     })
   }
 
-  accordion();
+  accordion({
+    triggerElem: '.questions__question',
+    spanClass: '.questions__question-plus',
+    spanActiveClass: 'questions__question-plus--active',
+    questionActiveClass: 'questions__question--active',
+    answerActiveClass: 'questions__answer--active',
+  });
+  accordion({
+    triggerElem: '.footer__component-title',
+    spanClass: '.footer__component-arrow',
+    spanActiveClass: 'footer__component-arrow--active',
+    questionActiveClass: 'footer__component-title--active',
+    answerActiveClass: 'footer__component-item--active',
+  });
 
+  // SENDING DATA
   const sendForm = () => {
     const form = document.querySelector('.feed-form');
 
@@ -231,7 +246,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
     const triggerBtn = document.querySelector('.sale__slider-mobile-btn');
     const showedContent = document.querySelectorAll('.sale__slider-item');
     let showIndex = 0;
-    let offset = 2;
+    let offset = 4;
 
     showedContent.forEach(item => {
       item.classList.add('hide')
@@ -254,7 +269,9 @@ document.addEventListener( 'DOMContentLoaded', () => {
       console.log(`showedContent.length is ${showedContent.length}`);
       if (showIndex >= (showedContent.length - offset)) {
         triggerBtn.remove();
-        shovingFourItemsContent(showIndex);
+        for (let i = showIndex; i < showedContent.length; i++) {
+          showedContent[i].classList.remove('hide');
+        };
       }
     }
 
@@ -262,4 +279,101 @@ document.addEventListener( 'DOMContentLoaded', () => {
   };
 
   showMore();
+
+  // mask
+  const maskPhoneNumber = (selector) => {
+
+    let setCursorPosition = (pos, elem) => {
+      elem.focus();
+
+      if (elem.setSelectionRange) {
+        elem.setSelectionRange(pos, pos);
+      } else if (elem.createTextRange) {
+        let range = elem.createTextRange();
+
+        range.collapse(true);
+        range.moveStart('character', pos);
+        range.moveEnd('character', pos);
+        range.select();
+      }
+    };
+
+    function createMask(event) {
+      let matrix = '+38 (0__) ___ __ __';
+      let i = 0;
+      let def = matrix.replace(/\D/g, '');
+      let val = this.value.replace(/\D/g, '');
+
+      if (def.length >= val.length) {
+        val = def;
+      }
+
+      this.value = matrix.replace(/./g, function (a) {
+        return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? '' : a;
+      });
+
+      if (event.type === 'blur') {
+        if (this.value.length == 2) {
+          this.value = '';
+        }
+      } else {
+        setCursorPosition(this.value.length, this);
+      }
+    }
+
+    let inputs = document.querySelectorAll(selector);
+
+    inputs.forEach(input => {
+      input.addEventListener('input', createMask);
+      input.addEventListener('keypress', createMask);
+      input.addEventListener('focus', createMask);
+      input.addEventListener('blur', createMask);
+    });
+  }
+
+  maskPhoneNumber('[name="phone"]');
+
+  const mailInputs = document.querySelectorAll('[name="email"]');
+
+  mailInputs.forEach(input => {
+    input.addEventListener('input', function () {
+      input.value = input.value.replace(/[а-яёії]/ig, '');
+    })
+  })
+
+  // SCROLLING
+
+  const home = document.querySelector('#goHome');
+  const speed = 0.25;
+
+  const smoothScroll = () => {
+    home.addEventListener('click', function (event) {
+      event.preventDefault();
+      let widthTop = Math.round(document.body.scrollTop || document.documentElement.scrollTop);
+      let hash = this.hash;
+      let target = document.querySelector(hash).getBoundingClientRect().top;
+      start = null;
+      
+      const frame = (time) => {
+        if (start === null) {
+          start = time
+        }
+        
+        let progress = time - start;
+        let r = Math.max(widthTop - progress / speed, widthTop + target);
+
+        document.documentElement.scrollTo(0, r);
+
+        if (r != widthTop + target) {
+          requestAnimationFrame(frame)
+        } else {
+          location.hash = hash;
+        }
+      }
+      
+      requestAnimationFrame(frame);
+    })
+  };
+
+  smoothScroll();
 })

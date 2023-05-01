@@ -24,6 +24,9 @@
       transition: all 1s;
       &--active {
         transform: rotate(90deg);
+        &:first-child {
+          transform: rotate(0);
+        }
       }
     }
     &--active {

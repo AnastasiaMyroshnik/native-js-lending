@@ -144,6 +144,7 @@
 @media (max-width: 415px) {
   .footer {
     margin-top: 0;
+    padding-bottom: 63px;
     &__wrapper {
       display: none;
     }
@@ -181,17 +182,29 @@
         &:first-child {
           margin-top: 0;
         }
-        span {
-          position: absolute;
-          right: 0;
-          bottom: 10px;
-          width: 6px;
-          height: 1px;
-          background-color: $white;
-          transform: rotate(-45deg);
+        &--active {
+          border-bottom: none;
+        }
+      }
+      &-arrow {
+        position: absolute;
+        right: 0;
+        bottom: 10px;
+        width: 6px;
+        height: 1px;
+        background-color: $white;
+        transform: rotate(-45deg);
+        &:last-child {
+          transform: rotate(45deg);
+          right: 4px;
+
+        }
+        &--active {
+          &:first-child {
+            transform: rotate(223deg);
+          }
           &:last-child {
-            transform: rotate(45deg);
-            right: 4px;
+            transform: rotate(131deg);
           }
         }
       }
@@ -213,6 +226,31 @@
         font-size: 10px;
         line-height: 12px;
         color: $white;
+      }
+      &-item {
+        display: none;
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 12px;
+        color: $white;
+        max-height: 0;
+        opacity: 0;
+        transition: all 1s;
+        &--active {
+          display: block;
+          opacity: 1;
+          max-height: min-content;
+        }
+      }
+    }
+    &__list {
+      margin-top: 0;
+      &-item {
+        a {
+          font-weight: 300;
+          font-size: 10px;
+          line-height: 12px;
+        }
       }
     }
     &__social {
