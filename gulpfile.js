@@ -101,7 +101,7 @@ gulp.task("build-prod-js", () => {
         ]
       }
     }))
-    .pipe(gulp.dest(dist));
+    .pipe(gulp.dest("dist/js"));
 });
 
 gulp.task('fonts', function () {
