@@ -171,3 +171,10 @@ input,
 select {
   vertical-align: middle;
 }
+
+input,button {
+  outline: none;
+  &:focus {
+      outline: none;
+    }
+}
